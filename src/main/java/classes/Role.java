@@ -1,11 +1,19 @@
 package classes;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
  * Created by jakub on 11.06.2017.
  */
+@Entity
+@Table(name = "role")
 public class Role implements Serializable {
+    @Id
+    @GeneratedValue
     private int id;
     private String login;
     private String role;

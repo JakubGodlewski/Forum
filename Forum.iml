@@ -16,7 +16,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="Forum" />
+          <factory-entry name="Forum" value="9d70943d-a959-45e4-8d9d-0b3f74512e0b" />
         </datasource-mapping>
         <deploymentDescriptor name="orm.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/orm.xml" />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
@@ -51,5 +51,6 @@
     <orderEntry type="library" name="Maven: org.hibernate:ejb3-persistence:1.0.1.GA" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: javassist:javassist:3.4.GA" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.0.1" level="project" />
   </component>
 </module>

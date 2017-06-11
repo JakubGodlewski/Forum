@@ -24,6 +24,11 @@
       <artifactId>hibernate-entitymanager</artifactId>
       <version>3.3.2.GA</version>
     </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.0.1</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>Forum</finalName>
