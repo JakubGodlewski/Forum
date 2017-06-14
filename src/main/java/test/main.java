@@ -1,8 +1,6 @@
 package test;
 
 import classes.Role;
-import dao.DBConfig;
-import dao.DatabaseInterfaceImpl;
 import dao.RolesDAO;
 
 import javax.persistence.EntityManager;
