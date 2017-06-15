@@ -1,12 +1,5 @@
 package test;
 
-import classes.Role;
-import dao.RolesDAO;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 /**
  * Created by jakub on 11.06.2017.
  */
@@ -16,7 +9,7 @@ public class main {
         EntityManager em = DBConfig.createEntityManager();
         RolesDAO rolesDAO = new RolesDAO(em);
         //rolesDAO.selectRoles().forEach(x ->System.out.println(x));
-        System.out.println(rolesDAO.gerRoleById(1));*/
+        System.out.println(rolesDAO.gerRoleById(1));
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Forum");
         EntityManager em = emf.createEntityManager();
@@ -24,7 +17,7 @@ public class main {
         for(Role r: rolesDAO.selectRoles())
         {
             System.out.println(r);
-        }
+        }*/
         //System.out.println(rolesDAO.getRoleById(1));
     }
 }
