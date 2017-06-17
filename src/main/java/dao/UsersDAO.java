@@ -22,8 +22,7 @@ public class UsersDAO {
     public User getUserByLogin(String login)
     {
         User user = (User)this.em.createQuery("select u from User u where u.login = :login")
-                .setParameter("login", login)
-                .getSingleResult();
+                .setParameter("login", login).getSingleResult();
         return user;
     }
 
@@ -38,7 +37,9 @@ public class UsersDAO {
         {
             et.begin();
             em.persist(user);
+            em.flush();
             em.persist(role);
+            em.flush();
             et.commit();
             return true;
         }catch(Exception e)

@@ -1,5 +1,9 @@
 package classes;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -15,12 +19,12 @@ public class Topic implements Serializable {
     @Id
     @GeneratedValue
     private int id;
-    private Timestamp date;
     private String title;
     @Lob()
     private String content;
+    private Timestamp date;
     @ManyToOne
-    @JoinColumn(name="idUser")
+    @JoinColumn(name="iduser")
     private User user;
     @OneToMany(mappedBy = "topic", fetch = FetchType.EAGER)
     @OrderBy("date ASC")
@@ -84,32 +88,6 @@ public class Topic implements Serializable {
     }
 
     public Topic() {
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Topic topic = (Topic) o;
-
-        if (id != topic.id) return false;
-        if (date != null ? !date.equals(topic.date) : topic.date != null) return false;
-        if (title != null ? !title.equals(topic.title) : topic.title != null) return false;
-        if (content != null ? !content.equals(topic.content) : topic.content != null) return false;
-        if (user != null ? !user.equals(topic.user) : topic.user != null) return false;
-        return inscriptions != null ? inscriptions.equals(topic.inscriptions) : topic.inscriptions == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (user != null ? user.hashCode() : 0);
-        result = 31 * result + (inscriptions != null ? inscriptions.hashCode() : 0);
-        return result;
     }
 
     @Override

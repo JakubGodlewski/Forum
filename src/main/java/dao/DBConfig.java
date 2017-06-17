@@ -5,17 +5,19 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
 /**
  * Created by jakub on 11.06.2017.
  */
+@WebListener
 public class DBConfig implements ServletContextListener{
 
     private static EntityManagerFactory emf;
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-         emf=Persistence.createEntityManagerFactory("Forum");
+        emf=Persistence.createEntityManagerFactory("Forum");
     }
 
     @Override
@@ -28,6 +30,7 @@ public class DBConfig implements ServletContextListener{
     {
         if(emf != null)
             return emf.createEntityManager();
-        else return null;
+        else
+            return null;
     }
 }

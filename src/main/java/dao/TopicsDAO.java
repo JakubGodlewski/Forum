@@ -24,9 +24,8 @@ public class TopicsDAO {
 
     public Topic selectTopicById(int id)
     {
-        em.clear();
-        Topic topic = em.find(Topic.class, id);
-        return topic;
+        this.em.clear();
+        return this.em.find(Topic.class, id);
     }
 
     public boolean insertTopic(Topic topic)
@@ -36,6 +35,7 @@ public class TopicsDAO {
         {
             et.begin();
             em.persist(topic);
+            em.flush();
             et.commit();
             return true;
         }catch(Exception e)

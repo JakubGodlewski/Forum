@@ -1,10 +1,39 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8" ?>
 
-<web-app>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
   <display-name>Forum</display-name>
-    <listener>
-        <listener-class>dao.InitiatorDB</listener-class>
-    </listener>
+    <welcome-file-list>
+        <welcome-file>index</welcome-file>
+    </welcome-file-list>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>regula</web-resource-name>
+            <url-pattern>/index</url-pattern>
+            <url-pattern>/newtopic</url-pattern>
+            <url-pattern>/topic</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+        <transport-guarantee>NONE</transport-guarantee>
+    </user-data-constraint>
+    </security-constraint>
+        <security-role>
+        <role-name>user</role-name>
+    </security-role>
+        <login-config>
+            <auth-method>FORM</auth-method>
+            <form-login-config>
+                <form-login-page>/login</form-login-page>
+                <form-error-page>/login</form-error-page>
+            </form-login-config>
+        </login-config>
 </web-app>

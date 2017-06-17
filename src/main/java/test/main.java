@@ -1,5 +1,16 @@
 package test;
 
+import classes.Inscription;
+import classes.Topic;
+import dao.DBConfig;
+import dao.InscriptionsDAO;
+import dao.TopicsDAO;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import java.util.List;
+
 /**
  * Created by jakub on 11.06.2017.
  */
@@ -9,15 +20,30 @@ public class main {
         EntityManager em = DBConfig.createEntityManager();
         RolesDAO rolesDAO = new RolesDAO(em);
         //rolesDAO.selectRoles().forEach(x ->System.out.println(x));
-        System.out.println(rolesDAO.gerRoleById(1));
+        System.out.println(rolesDAO.gerRoleById(1));*/
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Forum");
         EntityManager em = emf.createEntityManager();
-        RolesDAO rolesDAO = new RolesDAO(em);
-        for(Role r: rolesDAO.selectRoles())
+        TopicsDAO dao1 = new TopicsDAO(em);
+        InscriptionsDAO dao2 = new InscriptionsDAO(em);
+
+        //List<Inscription> inscriptions = dao2.selectInscription();
+        //List<Topic> topics = dao1.selectTopics();
+        /*for(Topic t: topics)
         {
-            System.out.println(r);
+            System.out.println(t);
         }*/
-        //System.out.println(rolesDAO.getRoleById(1));
+        //System.out.println(dao1.selectTopicById(2));
+        //System.out.println(dao2.selectInscriptionById(1));
+
+        /*List<Topic> topics = dao.selectTopics();
+        for(Topic t: topics)
+        {
+            System.out.println(t);
+        }*/
+
+        /*opic t = dao.selectTopicById(1);
+        System.out.println(t);*/
+
     }
 }

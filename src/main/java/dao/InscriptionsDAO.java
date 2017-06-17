@@ -18,15 +18,13 @@ public class InscriptionsDAO {
 
     public List<Inscription> selectInscription()
     {
-        List<Inscription> inscriptions = this.em.createQuery("select i from Inscription i").getResultList();
-        return inscriptions;
+        return this.em.createQuery("select i from Inscription i").getResultList();
     }
 
     public Inscription selectInscriptionById(int id)
     {
-        em.clear();
-        Inscription inscription = em.find(Inscription.class, id);
-        return inscription;
+        this.em.clear();
+        return this.em.find(Inscription.class, id);
     }
 
     public boolean insertInscription(Inscription inscription)

@@ -10,18 +10,23 @@ import java.sql.Timestamp;
 @Entity
 @Table(name="inscription")
 public class Inscription implements Serializable{
+
     @Id
     @GeneratedValue
     private int id;
-    private Timestamp date;
+
     @Lob()
     private String content;
+
+    private Timestamp date;
+
     @ManyToOne
-    @JoinColumn(name="idUser")
-    private User user;
-    @ManyToOne
-    @JoinColumn(name="idTopic")
+    @JoinColumn(name="idtopic")
     private Topic topic;
+
+    @ManyToOne
+    @JoinColumn(name="iduser")
+    private User user;
 
     public int getId() {
         return id;
@@ -72,30 +77,6 @@ public class Inscription implements Serializable{
     }
 
     public Inscription() {
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Inscription that = (Inscription) o;
-
-        if (id != that.id) return false;
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
-        if (content != null ? !content.equals(that.content) : that.content != null) return false;
-        if (user != null ? !user.equals(that.user) : that.user != null) return false;
-        return topic != null ? topic.equals(that.topic) : that.topic == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (user != null ? user.hashCode() : 0);
-        result = 31 * result + (topic != null ? topic.hashCode() : 0);
-        return result;
     }
 
     @Override
