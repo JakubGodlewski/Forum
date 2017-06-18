@@ -18,7 +18,7 @@ public class Inscription implements Serializable{
     @Lob()
     private String content;
 
-    private Timestamp date;
+    private Timestamp dateInscription;
 
     @ManyToOne
     @JoinColumn(name="idtopic")
@@ -36,12 +36,12 @@ public class Inscription implements Serializable{
         this.id = id;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getDateInscription() {
+        return dateInscription;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setDateInscription(Timestamp date) {
+        this.dateInscription = date;
     }
 
     public String getContent() {
@@ -68,25 +68,14 @@ public class Inscription implements Serializable{
         this.topic = topic;
     }
 
-    public Inscription(int id, Timestamp date, String content, User user, Topic topic) {
+    public Inscription(int id, Timestamp dateInscription, String content, User user, Topic topic) {
         this.id = id;
-        this.date = date;
+        this.dateInscription = dateInscription;
         this.content = content;
         this.user = user;
         this.topic = topic;
     }
 
     public Inscription() {
-    }
-
-    @Override
-    public String toString() {
-        return "Inscription{" +
-                "id=" + id +
-                ", date=" + date +
-                ", content='" + content + '\'' +
-                ", user=" + user +
-                ", topic=" + topic +
-                '}';
     }
 }

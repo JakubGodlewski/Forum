@@ -30,7 +30,7 @@
                     </c:url>
                     <a href="${url}">${topic.title}</a>
                 </td>
-                <td><fmt:formatDate value="${topic.date}" dateStyle="short" timeStyle="short" type="both"/></td>
+                <td><fmt:formatDate value="${topic.dateTopic}" dateStyle="short" timeStyle="short" type="both"/></td>
                 <td>${topic.user.login}</td>
             </tr>
         </c:forEach>

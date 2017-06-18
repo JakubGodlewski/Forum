@@ -27,7 +27,7 @@ public class NewTopicServlet extends HttpServlet {
             User logged = (User)request.getSession().getAttribute("user");
             TopicsDAO topicsDAO = (TopicsDAO)request.getAttribute("topicsDAO");
             Topic topic = new Topic();
-            topic.setDate(timestamp);
+            topic.setDateTopic(timestamp);
             topic.setContent(content);
             topic.setTitle(title);
             topic.setUser(logged);

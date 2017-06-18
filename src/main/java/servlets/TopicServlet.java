@@ -31,7 +31,7 @@ public class TopicServlet extends HttpServlet {
             User logged = (User)request.getSession().getAttribute("user");
             Topic topic = topicsDAO.selectTopicById(id);
             Inscription inscription = new Inscription();
-            inscription.setDate(new Timestamp(new Date().getTime()));
+            inscription.setDateInscription(new Timestamp(new Date().getTime()));
             inscription.setContent(content);
             inscription.setUser(logged);
             inscription.setTopic(topic);

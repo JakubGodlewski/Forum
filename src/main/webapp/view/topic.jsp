@@ -25,13 +25,13 @@
         <tr>
             <td>${topic.user.login}</td>
             <td>${topic.content}</td>
-            <td>${topic.date}</td>
+            <td>${topic.dateTopic}</td>
         </tr>
         <c:forEach var="inscription" items="${topic.inscriptions}">
             <tr>
                 <td>${inscription.user.login}</td>
                 <td>${inscription.content}</td>
-                <td>${inscription.date}</td>
+                <td>${inscription.dateInscription}</td>
             </tr>
         </c:forEach>
     </table>

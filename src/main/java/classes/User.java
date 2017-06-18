@@ -81,16 +81,4 @@ public class User implements Serializable{
 
     public User() {
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", date=" + date +
-                ", topics=" + topics +
-                ", inscriptions=" + inscriptions +
-                '}';
-    }
 }

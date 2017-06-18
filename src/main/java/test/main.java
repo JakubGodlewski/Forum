@@ -33,7 +33,8 @@ public class main {
         {
             System.out.println(t);
         }*/
-        //System.out.println(dao1.selectTopicById(2));
+        Topic t = dao1.selectTopicById(2);
+        System.out.println(t.getTitle()+", "+t.getContent());
         //System.out.println(dao2.selectInscriptionById(1));
 
         /*List<Topic> topics = dao.selectTopics();
